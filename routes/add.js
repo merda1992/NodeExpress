@@ -8,4 +8,12 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    console.log(req.body)
+
+    //функционал что не зависало прилодение
+    // добавим редирект(переадресацию)
+    res.redirect('/courses')
+})
+
 module.exports = router

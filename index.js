@@ -26,6 +26,9 @@ app.set('views', 'views')
 //зарегестрируем папку паблик как публичную
 app.use(express.static('public'))
 
+//добавим новый функционал (мидлвар)
+app.use(express.urlencoded({extended: true}))
+
 //Добавим Зарегестрированые роуты
 app.use('/', homerRoutes)
 app.use('/add', addRoutes)
