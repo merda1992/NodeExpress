@@ -20,13 +20,11 @@ app.set('view engine', 'hbs')
 app.set('views', 'views')
 
 app.get('/', (req, res) => {
-    res.status(200)
-    res.sendFile(path.join(__dirname, 'views', 'index.html'))
+    res.render('index')
 })
 
 app.get('/about', (req, res) => {
-    res.status(200)
-    res.sendFile(path.join(__dirname, 'views', 'about.html'))
+    res.render('about')
 })
 
 const PORT = process.env.PORT || 3000
