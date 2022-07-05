@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const exphs = require('express-handlebars');
 const { extname } = require('path');
+//экспорт роутов
+const homerRoutes = require('./routes/home')
+const addRoutes = require('./routes/add')
+const coursesRoutes = require('./routes/courses')
 
 const app = express();
 
@@ -22,28 +26,10 @@ app.set('views', 'views')
 //зарегестрируем папку паблик как публичную
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    //2ым параметром принимает обьект
-    res.render('index', {
-        title: 'Главная страница',
-        isHome: true
-    })
-})
-
-//Добавим роуты
-app.get('/add', (req, res) => {
-    res.render('add', {
-        title: 'Добавит курс',
-        isAdd: true
-    })
-})
-
-app.get('/courses', (req, res) => {
-    res.render('courses', {
-        title: 'Курсы',
-        isCourses: true
-    })
-})
+//Добавим Зарегестрированые роуты
+app.use(homerRoutes)
+app.use(addRoutes)
+app.use(coursesRoutes)
 
 const PORT = process.env.PORT || 3000
 
