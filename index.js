@@ -27,9 +27,9 @@ app.set('views', 'views')
 app.use(express.static('public'))
 
 //Добавим Зарегестрированые роуты
-app.use(homerRoutes)
-app.use(addRoutes)
-app.use(coursesRoutes)
+app.use('/', homerRoutes)
+app.use('/add', addRoutes)
+app.use('/courses', coursesRoutes)
 
 const PORT = process.env.PORT || 3000
 
