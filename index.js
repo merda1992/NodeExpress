@@ -19,6 +19,9 @@ app.set('view engine', 'hbs')
 //хранение шаблонов
 app.set('views', 'views')
 
+//зарегестрируем папку паблик как публичную
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
     res.render('index')
 })
