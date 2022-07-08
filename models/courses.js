@@ -19,6 +19,7 @@ class Course {
     }
   }
 
+  //сохранение в дджейсон файл
   async save() {
     const courses = await Course.getAll()
     courses.push(this.toJSON())
@@ -38,6 +39,7 @@ class Course {
     })
   }
 
+  //получение данных(содержимого) файла джейсон курсов
   static getAll() {
     return new Promise((resolve, reject) => {
       fs.readFile(
